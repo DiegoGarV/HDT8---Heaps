@@ -1,3 +1,9 @@
+/*
+* Fecha: 31/03/2023
+* Hoja de Trabajo #8
+* Vector Heap
+*/
+
 import java.util.Vector;
 
 public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
