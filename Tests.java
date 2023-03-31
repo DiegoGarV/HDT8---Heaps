@@ -1,80 +1,79 @@
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 import java.util.NoSuchElementException;
-
 
 public class Tests {
 
     @Test
-    public  void ProcesoTest() {
-
-        System.out.println("----------PRUEBA UNITARIA COMPARE TO----------");
-
-        Proceso proceso1 = new Proceso("vi", "juan02", 0);
-        Proceso proceso2 = new Proceso("ls", "maria30", 20);
-
-        int result = proceso1.compareTo(proceso2);
-
-        if(result < 0) {
-            System.out.println("proceso1 is less than proceso2");
-        } else if(result > 0) {
-            System.out.println("proceso1 is greater than proceso2");
-        } else {
-            System.out.println("proceso1 is equal to proceso2");
-        }
-        
-        System.out.println("PRUEBA REALIZADA \n");
-
-
-
-
-        System.out.println("----------PRUEBA UNITARIA PROCESOS ORDENADOS----------");
-
-        Proceso[] procesos = new Proceso[3];
-        procesos[0] = new Proceso("firefox", "rosa20", 5);
-        procesos[1] = new Proceso("cat", "juan02", 5);
-        procesos[2] = new Proceso("ls", "maria30", 20);
-
-        String orden = procesos[0].procesosOrdenados(procesos);
-
-        System.out.println("Procesos ordenados:");
-        System.out.println(orden);
-
-        System.out.println("PRUEBA REALIZADA \n");
-
-        
+    public void testCompareTo() {
+        Proceso p1 = new Proceso("p1", "u1", 5);
+        Proceso p2 = new Proceso("p2", "u2", 10);
+        assertTrue(p1.compareTo(p2) < 0);
+        assertTrue(p2.compareTo(p1) > 0);
+        assertEquals(p1.compareTo(p1), 0);
     }
 
     @Test
-    public  void VectorHeapTest(){
-
-        System.out.println("----------PREUBA UNITARIA PERCOLATEUP----------");
-
-        VectorHeap<Integer> heap = new VectorHeap<Integer>();
-        heap.add(4);
-        heap.add(2);
-        heap.add(3);
-        heap.add(1);
-        heap.percolateUp(3);                
-        System.out.println("PRUEBA REALIZADA \n");
-
-
-        System.out.println("-----------PRUEBA UNITARIA PUSHDOWNROOT----------");
-        heap.add(5);
-        heap.add(3);
-        heap.add(7);
-        heap.pushDownRoot(0);
-        System.out.println("PREUBA REALIZADA \n");
-
-        System.out.println("----------PRUEBA UNITARIA REMOVE----------");
-        heap.add(3);
-        heap.add(2);
-        heap.add(1);
-        heap.remove();
-        
-        System.out.println("PRUEBA REALIZADA \n");
-
+    public void testToString() {
+        Proceso p = new Proceso("p1", "u1", 5);
+        assertEquals(p.toString(), "p1, u1, 5, PR=125");
     }
 
+    @Test
+    public void testProcesosOrdenados() {
+        Proceso p1 = new Proceso("p1", "u1", 5);
+        Proceso p2 = new Proceso("p2", "u2", 10);
+        Proceso p3 = new Proceso("p3", "u3", 1);
+        Proceso[] procesos = { p1, p2, p3 };
+        Proceso p = new Proceso("p1", "u1", 5);
+        String orden = "p3, u3, 1, PR=121p1, u1, 5, PR=125p2, u2, 10, PR=130";
+        assertEquals(p.procesosOrdenados(procesos), orden);
+    }
+
+    private VectorHeap<Integer> vectorHeap;
+
+    @Before
+    public void setUp() {
+        vectorHeap = new VectorHeap<Integer>();
+    }
+
+    @Test
+    public void testAdd() {
+        vectorHeap.add(1);
+        assertEquals(1, vectorHeap.size());
+        assertEquals(new Integer(1), vectorHeap.getFirst());
+        vectorHeap.add(3);
+        assertEquals(2, vectorHeap.size());
+        assertEquals(new Integer(1), vectorHeap.getFirst());
+        vectorHeap.add(2);
+        assertEquals(3, vectorHeap.size());
+        assertEquals(new Integer(1), vectorHeap.getFirst());
+    }
+
+    @Test
+    public void testRemove() {
+        vectorHeap.add(1);
+        vectorHeap.add(3);
+        vectorHeap.add(2);
+        assertEquals(new Integer(1), vectorHeap.remove());
+        assertEquals(new Integer(2), vectorHeap.getFirst());
+        assertEquals(2, vectorHeap.size());
+        assertEquals(new Integer(2), vectorHeap.remove());
+        assertEquals(new Integer(3), vectorHeap.getFirst());
+        assertEquals(1, vectorHeap.size());
+        assertEquals(new Integer(3), vectorHeap.remove());
+        assertTrue(vectorHeap.isEmpty());
+    }
+
+    @Test
+    public void testClear() {
+        vectorHeap.add(1);
+        vectorHeap.add(3);
+        vectorHeap.add(2);
+        vectorHeap.clear();
+        assertTrue(vectorHeap.isEmpty());
+    }
 
 }
