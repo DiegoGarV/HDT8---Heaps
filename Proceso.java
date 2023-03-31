@@ -7,8 +7,6 @@
 * Proceso
 */
 
-import java.util.Arrays;
-
 /**
  * It takes an array of Proceso objects, sorts them by their nice value, and returns a string
  * containing the sorted array
@@ -80,24 +78,5 @@ public class Proceso implements Comparable<Proceso>{
      */
     public String toString(){
         return (getNombre()+", "+getUsuario()+", "+getNice()+", PR="+getPrioridad());
-    }
-
-    /**
-     * It takes an array of Proceso objects, sorts them by their nice value, and returns a string
-     * containing the sorted array
-     * 
-     * @param procesos Array of Proceso objects
-     * @return The method is returning a String.
-     */
-    public String procesosOrdenados(Proceso[] procesos) {
-        String orden = "";
-        Arrays.sort(procesos);
-    
-        System.out.println("Procesos ordenados por valor nice:");
-        for (Proceso proceso : procesos) {
-            orden+=proceso.toString();
-        }
-
-        return orden;
     }
 }

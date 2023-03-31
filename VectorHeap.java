@@ -29,21 +29,21 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueueI<E>{
 			add(v.get(i));
 		}
 	}
-	protected static int parent(int i)
+	protected int parent(int i)
 	// pre: 0 <= i < size
 	// post: returns parent of node at location i
 	{
 		return (i-1)/2;
 	}
 
-	protected static int left(int i)
+	protected int left(int i)
 	// pre: 0 <= i < size
 	// post: returns index of left child of node at location i
 	{
 		return 2*i+1;
 	}
 
-	protected static int right(int i)
+	protected int right(int i)
 	// pre: 0 <= i < size
 	// post: returns index of right child of node at location i
 	{

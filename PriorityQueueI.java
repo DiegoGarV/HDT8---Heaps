@@ -1,7 +1,7 @@
 /*
 * Fecha: 31/03/2023
 * Hoja de Trabajo #8
-* Priority Queue
+* Interfaz Priority Queue
 */
 
 public interface PriorityQueueI<E extends Comparable<E>>{
