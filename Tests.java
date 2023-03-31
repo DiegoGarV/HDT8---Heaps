@@ -29,26 +29,6 @@ public class Tests {
         assertEquals(p.toString(), "p1, u1, 5, PR=125");
     }
 
-<<<<<<< HEAD
-    private VectorHeap<Integer> vectorHeap;
-=======
-    /**
-     * The function is supposed to return a string with the processes ordered by their priority
-     */
-    @Test
-    public void testProcesosOrdenados() {
-        Proceso p1 = new Proceso("p1", "u1", 5);
-        Proceso p2 = new Proceso("p2", "u2", 10);
-        Proceso p3 = new Proceso("p3", "u3", 1);
-        Proceso[] procesos = { p1, p2, p3 };
-        Proceso p = new Proceso("p1", "u1", 5);
-        String orden = "p3, u3, 1, PR=121p1, u1, 5, PR=125p2, u2, 10, PR=130";
-        assertEquals(p.procesosOrdenados(procesos), orden);
-    }
-
-    
->>>>>>> 0396b68daa2862eb3b3146a4373cebf8ddfe3425
-
     /**
      * This function is used to set up the vector heap before the test is run.
      */
