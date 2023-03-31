@@ -25,34 +25,74 @@ public class Proceso implements Comparable<Proceso>{
         this.prioridad = nice+120;
     }
     
+    
+    /** 
+     * @return String
+     */
     public String getNombre() {
         return this.nombre;
     }
 
+    
+    /** 
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * This function returns the value of the variable usuario
+     * 
+     * @return The value of the variable usuario.
+     */
     public String getUsuario() {
         return this.usuario;
     }
 
+    /**
+     * This function sets the value of the variable usuario to the value of the parameter usuario
+     * 
+     * @param usuario The username of the user
+     */
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
+    /**
+     * This function returns the value of the variable nice
+     * 
+     * @return The value of the instance variable nice.
+     */
     public Integer getNice() {
         return this.nice;
     }
 
+    /**
+     * This function sets the value of the nice variable to the value of the nice variable passed in as
+     * a parameter
+     * 
+     * @param nice The nice value of the process. A negative nice value means higher priority, whereas
+     * a positive nice value means lower priority. Zero is the default priority.
+     */
     public void setNice(Integer nice) {
         this.nice = nice;
     }
 
+    /**
+     * This function returns the priority of the current task
+     * 
+     * @return The value of the variable prioridad.
+     */
     public Integer getPrioridad() {
         return this.prioridad;
     }
 
+    /**
+     * It sets the priority of the task.
+     * 
+     * @param prioridad Integer
+     */
     public void setPrioridad(Integer prioridad) {
         this.prioridad = prioridad;
     }
