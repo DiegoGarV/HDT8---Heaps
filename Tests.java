@@ -5,10 +5,6 @@ import java.util.NoSuchElementException;
 
 public class Tests {
 
-    
-        
-    
-
     @Test
     public  void ProcesoTest() {
 
@@ -49,7 +45,7 @@ public class Tests {
         
     }
 
-    
+    @Test
     public  void VectorHeapTest(){
 
         System.out.println("----------PREUBA UNITARIA PERCOLATEUP----------");
