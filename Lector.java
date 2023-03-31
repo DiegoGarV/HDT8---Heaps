@@ -6,6 +6,10 @@ import java.util.List;
 
 public class Lector {
 
+    
+    /** 
+     * @return List<List<String>>
+     */
     public List<List<String>> readTextFile() {
         List<List<String>> lines = new ArrayList<>();
         

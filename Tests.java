@@ -6,6 +6,11 @@ import java.util.NoSuchElementException;
 
 public class Tests {
 
+    private VectorHeap<Integer> vectorHeap;
+
+    /**
+     * The function compares the priority of two processes and returns a value based on the comparison
+     */
     @Test
     public void testCompareTo() {
         Proceso p1 = new Proceso("p1", "u1", 5);
@@ -15,12 +20,18 @@ public class Tests {
         assertEquals(p1.compareTo(p1), 0);
     }
 
+    /**
+     * This function tests the toString method of the Proceso class
+     */
     @Test
     public void testToString() {
         Proceso p = new Proceso("p1", "u1", 5);
         assertEquals(p.toString(), "p1, u1, 5, PR=125");
     }
 
+    /**
+     * The function is supposed to return a string with the processes ordered by their priority
+     */
     @Test
     public void testProcesosOrdenados() {
         Proceso p1 = new Proceso("p1", "u1", 5);
@@ -32,13 +43,19 @@ public class Tests {
         assertEquals(p.procesosOrdenados(procesos), orden);
     }
 
-    private VectorHeap<Integer> vectorHeap;
+    
 
+    /**
+     * This function is used to set up the vector heap before the test is run.
+     */
     @Before
     public void setUp() {
         vectorHeap = new VectorHeap<Integer>();
     }
 
+   /**
+    * The testAdd() method tests the add() method of the VectorHeap class
+    */
     @Test
     public void testAdd() {
         vectorHeap.add(1);
@@ -52,6 +69,9 @@ public class Tests {
         assertEquals(new Integer(1), vectorHeap.getFirst());
     }
 
+    /**
+     * The function tests the remove method of the vectorHeap class
+     */
     @Test
     public void testRemove() {
         vectorHeap.add(1);
@@ -67,6 +87,9 @@ public class Tests {
         assertTrue(vectorHeap.isEmpty());
     }
 
+    /**
+     * This function tests the clear method of the vectorHeap class
+     */
     @Test
     public void testClear() {
         vectorHeap.add(1);
