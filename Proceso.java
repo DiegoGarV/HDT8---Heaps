@@ -1,4 +1,3 @@
-
 /*
 * Autores:
 * Diego García 22404
@@ -10,12 +9,17 @@
 
 import java.util.Arrays;
 
+/**
+ * It takes an array of Proceso objects, sorts them by their nice value, and returns a string
+ * containing the sorted array
+ */
 public class Proceso implements Comparable<Proceso>{
     private String nombre;
     private String usuario;
     private Integer nice;
     private Integer prioridad;
     
+    // A constructor.
     public Proceso(String nombre, String usuario, Integer nice){
         this.nombre = nombre;
         this.usuario = usuario;
@@ -55,15 +59,36 @@ public class Proceso implements Comparable<Proceso>{
         this.prioridad = prioridad;
     }
     
+    /**
+     * The compareTo() method compares two objects of the same type and returns a negative integer,
+     * zero, or a positive integer as this object is less than, equal to, or greater than the specified
+     * object
+     * 
+     * @param otro The other process to compare to.
+     * @return The compareTo method is being returned.
+     */
     @Override
     public int compareTo(Proceso otro) {
         return this.nice.compareTo(otro.nice);
     }
     
+    /**
+     * The function returns a string that contains the name, username, nice value, and priority of the
+     * process
+     * 
+     * @return The name, user, nice, and priority of the process.
+     */
     public String toString(){
         return (getNombre()+", "+getUsuario()+", "+getNice()+", PR="+getPrioridad());
     }
 
+    /**
+     * It takes an array of Proceso objects, sorts them by their nice value, and returns a string
+     * containing the sorted array
+     * 
+     * @param procesos Array of Proceso objects
+     * @return The method is returning a String.
+     */
     public String procesosOrdenados(Proceso[] procesos) {
         String orden = "";
         Arrays.sort(procesos);
