@@ -1,10 +1,10 @@
 /*
 * Fecha: 31/03/2023
 * Hoja de Trabajo #8
-* PriorityQueue
+* Priority Queue
 */
 
-public interface PriorityQueue<E extends Comparable<E>>{
+public interface PriorityQueueI<E extends Comparable<E>>{
 	public E getFirst();
 	// pre: !isEmpty()
 	// post: returns the minimum value in priority queue

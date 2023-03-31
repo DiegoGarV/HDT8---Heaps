@@ -1,4 +1,7 @@
 /*
+* Autores:
+* Diego García 22404
+* César López 22535
 * Fecha: 31/03/2023
 * Hoja de Trabajo #8
 * Vector Heap
@@ -6,7 +9,7 @@
 
 import java.util.Vector;
 
-public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
+public class VectorHeap<E extends Comparable<E>> implements PriorityQueueI<E>{
 
 	protected Vector<E> data; // the data, kept in heap order
 
